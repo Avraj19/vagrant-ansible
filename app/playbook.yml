@@ -1,0 +1,5 @@
+```
+- hosts: ansible_nodejs
+  become: yes
+  become_method: sudo
+  
