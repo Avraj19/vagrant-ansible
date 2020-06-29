@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     app.hostsupdater.aliases = ["development.local"]
     
     # synce folder
-    # app.vm.synced_folder "app", "/home/ubuntu/app"
+    app.vm.synced_folder "app", "/home/ubuntu/app"
 
     
     # Installing ansible 

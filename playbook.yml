@@ -8,11 +8,6 @@
   become: true
   tasks:
 
-    - name: copying playbook
-      copy:
-        src: ./app/
-        dest: home.ubuntu/app-playbook/
-
     - name: ensure nginx is at the latest version
       apt:
         name: nginx
