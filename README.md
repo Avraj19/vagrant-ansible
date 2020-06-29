@@ -1,51 +1,28 @@
-# VM - Virtual Machine
-bundle install- installs ruby dependencies
+# Ansible nodejs
 
-#### Provisions
+Running nodejs useing Ansible.
 
-shell 'provision' files are used to feed the software everything it needs at start up.
+## Prerequisite
 
-E.g. These are terminal commands that one would execute after initiating 'vagrant'. (written in the shell file)
-```
-sudo apt-get -y update
+1. Virtual box
+https://www.virtualbox.org/
+- This program used v6.1
 
-sudo apt-get -y install nginx
+2. Installing Vagrant
+https://www.vagrantup.com/
+- This program used v2.2.9
 
-service nginx start
+3. Download ruby
+https://rubyinstaller.org/downloads/
 
-sudo apt-get -y install nodejs npm
-```
-Having the shell file and linking it using the following code below, would allow the code to automatically execute.
-Must be written in Vagrantfile.
-```
-config.vm.provision "shell", path: "environment/provision.sh"
-```
-#### Rake Spec - tests assertions laid out in 'sample_spec.rb'
-.rpsec - ruby inspect [testing framework]
-
-#### Add folder to VM
-This sends 'app' folder to VM & syncs connection both ways.
-Must be written in Vagrantfile.
-```
-config.vm.synced_folder "app", "/app"
-```
-
-#### Access VM
-This command gives access to VM and its folders
-
+## Test Instructions
+1. Clone this repo
+2. Open git bash / equivalent
+3. Make sure you are in the right directory
 ```bash
-vagrant ssh
+/vagrant-ansible
 ```
-
-
-### Node App#
-npm - node package manager
-npm install - install packages for node
-npm start -
-
-### tests
-
-unit tests vs integration tests
-
-unit tests test one piece of code at a time (i.e. code written on top of machine)
-integration tests test the entire machine (i.e. virtualbox)
+4. Running VM
+```bash
+vagrant up
+```
