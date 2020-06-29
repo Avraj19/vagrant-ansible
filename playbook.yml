@@ -8,6 +8,11 @@
   become: true
   tasks:
 
+    - name: copying playbook
+      copy:
+        src: ./app/
+        dest: home.ubuntu/app-playbook/
+
     - name: ensure nginx is at the latest version
       apt:
         name: nginx
@@ -21,3 +26,20 @@
 
     - name: ensure git is at the latest version
       apt: name=git state=latest
+    
+    - name: Add Node 13 PPA
+      become: yes
+      shell: curl -sL https://deb.nodesource.com/setup_13.x | bash -
+      args:
+        warn: no
+
+    - name: Install NodeJS and npm
+      become: yes
+      apt:
+        name:
+        - nodejs
+        state: latest
+        update_cache: yes
+
+    - name: install pm2 is with npm
+      command: npm install pm2 -g
